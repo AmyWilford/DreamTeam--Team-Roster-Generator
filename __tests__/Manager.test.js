@@ -6,18 +6,18 @@ describe('initialization', ()=>{
         const manager = new Manager('Emily', 1, 'emily@test.com', officeNum);
         expect(manager.officeNum).toBe(officeNum);
     });
-    describe('receives information', ()=>{
-        it('returns manager when called with role()function call', ()=> {
-            const role = 'Manager';
-            const manager = new Manager('Emily', 1, 'emily@test.com', 111);
-            expect(manager.role()).toBe(role);
-        });
-        it('returns manager office number with getOfficeNum() function call', ()=> {
-            const officeNum = 111;
-            const manager = new Manager('Emily', 1, 'emily@test.com', officeNum);
-            expect(manager.getOfficeNum()).toBe(officeNum);
-        })
-    })
+    // describe('receives information', ()=>{
+    //     it('returns manager when called with role()function call', ()=> {
+    //         const role = 'Manager';
+    //         const manager = new Manager('Emily', 1, 'emily@test.com', 111);
+    //         expect(manager.role()).toBe(role);
+    //     });
+    //     it('returns manager office number with getOfficeNum() function call', ()=> {
+    //         const officeNum = 111;
+    //         const manager = new Manager('Emily', 1, 'emily@test.com', officeNum);
+    //         expect(manager.getOfficeNum()).toBe(officeNum);
+    //     })
+    // })
     
     
 })

@@ -21,21 +21,21 @@ describe('initialization', ()=> {
         const employee = new Employee('Emily', 1, email);
         expect(employee.email).toBe(email);
     })
-    describe('receive information', ()=>{
-        it('retrieves current employee name with getName() function call', ()=>{
-            const name = 'Emily';
-            const employee = new Employee('Emily');
-            expect(employee.getName()).toBe(name);
-        });
-        it('retrieves current employee id with getId() function call', ()=>{
-            const id = 1;
-            const employee = new Employee('Emily', id);
-            expect(employee.getId()).toBe(id);
-        });
-        it('retrieves current employee email with getEmail() function call', ()=>{
-            const email = 'emily@test.com';
-            const employee = new Employee('Emily', 1, email);
-            expect(employee.getEmail()).toBe(email);
-        })
-    })
+    // describe('receive information', ()=>{
+    //     it('retrieves current employee name with getName() function call', ()=>{
+    //         const name = 'Emily';
+    //         const employee = new Employee('Emily');
+    //         expect(employee.getName()).toBe(name);
+    //     });
+    //     it('retrieves current employee id with getId() function call', ()=>{
+    //         const id = 1;
+    //         const employee = new Employee('Emily', id);
+    //         expect(employee.getId()).toBe(id);
+    //     });
+    //     it('retrieves current employee email with getEmail() function call', ()=>{
+    //         const email = 'emily@test.com';
+    //         const employee = new Employee('Emily', 1, email);
+    //         expect(employee.getEmail()).toBe(email);
+    //     })
+    // })
 })
