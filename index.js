@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateTeam = require('./src/generateTeam');
 
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
@@ -28,7 +29,7 @@ const questions = [
         validate: function(id)
         {
             if(!id){
-                console.log('\x1b[31m%s\x1b[0m', 'please enter an employee ID')
+                console.log('\x1b[31m%s\x1b[0m', 'please enter a valid employee ID')
                 return false;
             }
             return true;
@@ -60,6 +61,11 @@ const questions = [
         choices: ['Engineer', 'Intern', 'Finish Building Team']
     },
 ]
+
+if(answers.role === 'Manager') {
+    
+}
+
 function init(){
     inquirer.prompt(questions)
     .then(function(response) {
