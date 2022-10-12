@@ -147,10 +147,10 @@ function newEngineer(){
     {
         type: 'input', 
         message: 'Enter Team Engineer github username:',
-        name: 'username',
-        validate: function(username)
+        name: 'github',
+        validate: function(github)
         {
-            if(!username){
+            if(!github){
                 console.log('\x1b[31m%s\x1b[0m', 'please enter an email address')
                 return false;
             }
@@ -163,7 +163,7 @@ function newEngineer(){
         response.name,
         response.id, 
         response.email, 
-        response.username,
+        response.github
     )
     let engineerHTML = 
     `<div class="card bg-light m-4" style="width: 300px">
@@ -175,7 +175,7 @@ function newEngineer(){
         <ul class="list-group list-group-flush border border-grey m-4">
             <li class="list-group-item">ID: ${newEngineer.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${newEngineer.email}">${newEngineer.email}</a></li>
-            <li class="list-group-item">GitHub: https://github.com/${newEngineer.username}</li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${newEngineer.github}">https://github.com/${newEngineer.github}</a></li>
           </ul>
     </div>
     </div>`
@@ -229,7 +229,7 @@ function newIntern(){
     {
         type: 'input', 
         message: 'Enter Team Intern School:',
-        name: 'username',
+        name: 'school',
         validate: function(username)
         {
             if(!username){
@@ -245,7 +245,7 @@ function newIntern(){
         response.name,
         response.id, 
         response.email, 
-        response.school,
+        response.school
     )
     let internHTML = 
     `<div class="card bg-light m-4" style="width: 300px">
