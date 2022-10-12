@@ -1,14 +1,15 @@
+// import dependency packages for application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const Employee = require('./lib/Employee');
+// import classes
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-let starterHTML= 
-`
-<!DOCTYPE html>
+// establish base HTML code. Genreated team member HTML will be concated to base code.
+let fileHTML= 
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@ let starterHTML=
     <div class="jumbotron text-center display-1 text-uppercase custom-jumbtron">The Dream Team</div>
     <div class="d-flex flex-wrap justify-content-center">`
 
-// Manager Questions
+// Initial inquirier prompt questions for team Manager
 const questions = [
     {
         type: 'input', 
@@ -81,7 +82,7 @@ const questions = [
     }, 
 ]
 
-// Function to add to team
+// Function to add team members or finish building team
 function addToTeam(){
     inquirer.prompt([
         {
@@ -98,15 +99,17 @@ function addToTeam(){
         } else if(response.team === 'Intern'){
             newIntern();
         } else {
-            starterHTML+=`
+            fileHTML+=`
             </div>
         </body>
         </html>`
-            writeHTMLFile('./dist/dreamteam.html', starterHTML);
+
+        // write HTML file with provided file path&name - use fileHTML variable to populate file 
+            writeHTMLFile('./dist/dreamteam.html', fileHTML);
         }
     })
 }
-// Function to ask engineer specific questions > build instance of engineer with responses
+// function to ask Engineer prompts and create newEngineer object to embed within HTML
 function newEngineer(){
     inquirer.prompt([
         {
@@ -169,6 +172,7 @@ function newEngineer(){
         response.email, 
         response.github
     )
+
     let engineerHTML = 
     `<div class="card bg-light m-4" style="width: 350px">
         <div class="card-body p-0">
@@ -184,11 +188,12 @@ function newEngineer(){
         </div>
     </div>`
 
-    starterHTML+=engineerHTML;
+    fileHTML+=engineerHTML;
     addToTeam();
 })
 }
 
+// function to ask Intern prompts and create newIntern object to embed within HTML
 function newIntern(){
     inquirer.prompt([
         {
@@ -251,6 +256,7 @@ function newIntern(){
         response.email, 
         response.school
     )
+
     let internHTML = 
     `<div class="card bg-light m-4" style="width: 350px">
     <div class="card-body p-0">
@@ -266,19 +272,24 @@ function newIntern(){
     </div>
     </div>`
 
-    starterHTML+=internHTML;
+    fileHTML+=internHTML;
     addToTeam();
 })
 }
+
+// function to write HTML file with a provided file name and input data
 function writeHTMLFile(fileName, data) {
     fs.writeFile(fileName, data, (err)=>{
         err ? console.log(err) : console.log('Your team page is ready!')
     });
 }
+
+// function to initiate app and ask initial inquirier.prompt questions
 function init(){
     inquirer.prompt(questions)
     .then(function(response) {
 
+        // create Manager object with initial prompt responses and embed within HTML
         const newManager = new Manager (
             response.name,
             response.email,
@@ -299,9 +310,12 @@ function init(){
             </ul>
         </div>
         </div>`
-        starterHTML+=managerHTML;
+        fileHTML+=managerHTML;
+        // run addToTeam function to determine if anyone will be added to the team
         addToTeam();
     })
 }
+
+// Call init() function to start application
 init();
 
