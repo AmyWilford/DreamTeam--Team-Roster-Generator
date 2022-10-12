@@ -15,17 +15,17 @@ let starterHTML=
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Your Team</title>
+    <title>The Dream Team</title>
 </head>
 <body>
-    <div class="jumbotron bg-warning text-center display-3 text-uppercase font-weight-bold">The Team</div>
-    <div class="d-flex flex-wrap">`
+    <div class="jumbotron bg-warning text-center display-3 text-uppercase font-weight-bold">The Dream Team</div>
+    <div class="d-flex flex-wrap justify-content-center">`
 
-// employee questions
+// Manager Questions
 const questions = [
     {
         type: 'input', 
-        message: 'Enter Manager name',
+        message: 'Enter Your Name:',
         name: 'name',
         validate: function(name)
         {
@@ -51,7 +51,7 @@ const questions = [
     }, 
     {
         type: 'input', 
-        message: 'Enter your email address',
+        message: 'Enter Your Email Address',
         name: 'email',
         validate: function(email)
         {
@@ -64,7 +64,7 @@ const questions = [
     }, 
     {
         type: 'input', 
-        message: 'Enter your office number',
+        message: 'Enter Your Office Number',
         name: 'officeNum',
         validate: function(officeNum)
         {
@@ -76,7 +76,9 @@ const questions = [
         }
     }, 
 ]
-function otherQuestion(){
+
+// Function to add to team
+function addToTeam(){
     inquirer.prompt([
         {
             type: 'list', 
@@ -89,11 +91,10 @@ function otherQuestion(){
         console.log(response.team)
         if(response.team ==='Engineer'){
             newEngineer();
-        //} else if(response.choices === 'Intern'){
-            //newIntern();
+        } else if(response.team === 'Intern'){
+            newIntern();
         } else {
             starterHTML+=`
-             </div>
             </div>
         </body>
         </html>`
@@ -101,12 +102,12 @@ function otherQuestion(){
         }
     })
 }
-
+// Function to ask engineer specific questions > build instance of engineer with responses
 function newEngineer(){
     inquirer.prompt([
         {
         type: 'input', 
-        message: 'Enter Team Engineer Name',
+        message: 'Enter Team Engineer Name:',
         name: 'name',
         validate: function(name)
         {
@@ -119,7 +120,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer ID',
+        message: 'Enter Team Engineer ID:',
         name: 'id',
         validate: function(id)
         {
@@ -132,7 +133,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer email address',
+        message: 'Enter Team Engineer Email Address:',
         name: 'email',
         validate: function(email)
         {
@@ -145,7 +146,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer github username',
+        message: 'Enter Team Engineer github username:',
         name: 'username',
         validate: function(username)
         {
@@ -162,24 +163,25 @@ function newEngineer(){
         response.name,
         response.id, 
         response.email, 
-        response.username
+        response.username,
     )
     let engineerHTML = 
     `<div class="card bg-light m-4" style="width: 300px">
     <div class="card-body p-0">
         <div class="card-title bg-info p-3 text-white">
             <h5>${newEngineer.name}</h5>
-            <h5>Manager</h5>
+            <h5>Engineer</h5>
         </div>
         <ul class="list-group list-group-flush border border-grey m-4">
-            <li class="list-group-item">ID:</li>
-            <li class="list-group-item">Email:</li>
-            <li class="list-group-item">GitHub:</li>
+            <li class="list-group-item">ID: ${newEngineer.id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${newEngineer.email}">${newEngineer.email}</a></li>
+            <li class="list-group-item">GitHub: https://github.com/${newEngineer.username}</li>
           </ul>
+    </div>
     </div>`
 
     starterHTML+=engineerHTML;
-    otherQuestion();
+    addToTeam();
 })
 }
 
@@ -187,7 +189,7 @@ function newIntern(){
     inquirer.prompt([
         {
         type: 'input', 
-        message: 'Enter Team Intern Name',
+        message: 'Enter Team Intern Name:',
         name: 'name',
         validate: function(name)
         {
@@ -200,7 +202,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern ID',
+        message: 'Enter Team Intern ID:',
         name: 'id',
         validate: function(id)
         {
@@ -213,7 +215,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern Email Address',
+        message: 'Enter Team Intern Email Address:',
         name: 'email',
         validate: function(email)
         {
@@ -226,7 +228,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern school',
+        message: 'Enter Team Intern School:',
         name: 'username',
         validate: function(username)
         {
@@ -243,24 +245,25 @@ function newIntern(){
         response.name,
         response.id, 
         response.email, 
-        response.username
+        response.school,
     )
     let internHTML = 
     `<div class="card bg-light m-4" style="width: 300px">
     <div class="card-body p-0">
         <div class="card-title bg-info p-3 text-white">
             <h5>${newIntern.name}</h5>
-            <h5>Manager</h5>
+            <h5>Intern</h5>
         </div>
         <ul class="list-group list-group-flush border border-grey m-4">
-            <li class="list-group-item">ID:</li>
-            <li class="list-group-item">Email:</li>
-            <li class="list-group-item">GitHub:</li>
-          </ul>
+            <li class="list-group-item">ID: ${newIntern.id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${newIntern.email}">${newIntern.email}</a></li>
+            <li class="list-group-item">School: ${newIntern.school}</li>
+        </ul>
+    </div>
     </div>`
 
     starterHTML+=internHTML;
-    otherQuestion();
+    addToTeam();
 })
 }
 function writeHTMLFile(fileName, data) {
@@ -286,16 +289,15 @@ function init(){
                 <h5>Manager</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
-                <li class="list-group-item">ID:</li>
-                <li class="list-group-item">Email:</li>
-                <li class="list-group-item">GitHub:</li>
-              </ul>
+                <li class="list-group-item">ID: ${newManager.id}</li>
+                <li class="list-group-item">Email: <a href="mailto:${newManager.email}">${newManager.email}</a></li>
+                <li class="list-group-item">Office: ${newManager.officeNum}</li>
+            </ul>
+        </div>
         </div>`
 
         starterHTML+=managerHTML;
-            
-        otherQuestion();
-
+        addToTeam();
     })
 }
 init();
