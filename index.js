@@ -181,7 +181,7 @@ function newEngineer(){
                 <h5 class="text-lowercase">${newEngineer.getRole()}</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
-                <li class="list-group-item"><b>ID: </b>${newEngineer.id}</li>
+                <li class="list-group-item"><b>EMPLOYEE ID: </b>${newEngineer.id}</li>
                 <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newEngineer.email}">${newEngineer.email}</a></li>
                 <li class="list-group-item"><b>GITHUB: </b><a href="https://github.com/${newEngineer.github}" target="_blank">https://github.com/${newEngineer.github}</a></li>
             </ul>
@@ -265,7 +265,7 @@ function newIntern(){
             <h5 class="text-lowercase">${newIntern.getRole()}</h5>
         </div>
         <ul class="list-group list-group-flush border border-grey m-4">
-            <li class="list-group-item"><b>ID: </b>${newIntern.id}</li>
+            <li class="list-group-item"><b>EMPLOYEE ID: </b>${newIntern.id}</li>
             <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newIntern.email}">${newIntern.email}</a></li>
             <li class="list-group-item"><b>SCHOOL: </b>${newIntern.school}</li>
         </ul>
@@ -292,8 +292,8 @@ function init(){
         // create Manager object with initial prompt responses and embed within HTML
         const newManager = new Manager (
             response.name,
-            response.email,
             response.id,
+            response.email,
             response.officeNum
         )
         let managerHTML = 
@@ -304,7 +304,7 @@ function init(){
                 <h5 class="text-lowercase">${newManager.getRole()}</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
-                <li class="list-group-item"><b>ID: </b>${newManager.id}</li>
+                <li class="list-group-item"><b>EMPLOYEE ID: </b>${newManager.id}</li>
                 <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newManager.email}">${newManager.email}</a></li>
                 <li class="list-group-item"><b>OFFICE #: </b>${newManager.officeNum}</li>
             </ul>
