@@ -5,6 +5,7 @@
 }
 .card {
     font-family: 'Source Sans Pro', sans-serif;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 .custom-background {
     background-color: #28334Aff;

@@ -295,7 +295,7 @@ function init(){
             <ul class="list-group list-group-flush border border-grey m-4">
                 <li class="list-group-item"><b>ID: </b>${newManager.id}</li>
                 <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newManager.email}">${newManager.email}</a></li>
-                <li class="list-group-item"><b>OFFICE: </b>${newManager.officeNum}</li>
+                <li class="list-group-item"><b>OFFICE #: </b>${newManager.officeNum}</li>
             </ul>
         </div>
         </div>`
