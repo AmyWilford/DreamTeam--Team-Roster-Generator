@@ -178,7 +178,7 @@ function newEngineer(){
         <div class="card-body p-0">
             <div class="card-title custom-background p-3">
                 <h5 class="text-uppercase font-weight-bold">${newEngineer.name}</h5>
-                <h5 class="text-lowercase font-italic">Engineer</h5>
+                <h5 class="text-lowercase">${newEngineer.getRole()}</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
                 <li class="list-group-item"><b>ID: </b>${newEngineer.id}</li>
@@ -262,7 +262,7 @@ function newIntern(){
     <div class="card-body p-0">
         <div class="card-title custom-background p-3">
             <h5 class="text-uppercase font-weight-bold">${newIntern.name}</h5>
-            <h5 class="text-lowercase font-italic">Intern</h5>
+            <h5 class="text-lowercase">${newIntern.getRole()}</h5>
         </div>
         <ul class="list-group list-group-flush border border-grey m-4">
             <li class="list-group-item"><b>ID: </b>${newIntern.id}</li>
@@ -301,7 +301,7 @@ function init(){
         <div class="card-body p-0">
             <div class="card-title custom-background p-3">
                 <h5 class="text-uppercase font-weight-bold">${newManager.name}</h5>
-                <h5 class="text-lowercase font-italic">Manager</h5>
+                <h5 class="text-lowercase">${newManager.getRole()}</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
                 <li class="list-group-item"><b>ID: </b>${newManager.id}</li>

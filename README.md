@@ -52,7 +52,7 @@ To use: Open an integrated terminal linked to the index.js file. Run node index.
 
 ## Demo:
 
-- [View a video walk through of this application in use]()
+- [View a video walk through of this application in use](https://drive.google.com/file/d/1GEcTrclCL8oJL4PB792pfYS9OIamAQrq/view)
 
 ## License:
 

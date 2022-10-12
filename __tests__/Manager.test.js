@@ -6,4 +6,12 @@ describe('initialization', ()=>{
         const manager = new Manager('Emily', 1, 'emily@test.com', officeNum);
         expect(manager.officeNum).toBe(officeNum);
     });
+    describe('receives information', ()=>{
+        it('returns manager when called with getRole()function call', ()=> {
+            const role = 'Manager';
+            const manager = new Manager('Emily', 1, 'emily@test.com', 111);
+            expect(manager.getRole()).toBe(role);
+        });
+    
+    })
 })
