@@ -14,18 +14,22 @@ let starterHTML=
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Source+Sans+Pro:wght@200;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/style.css">
     <title>The Dream Team</title>
 </head>
-<body>
-    <div class="jumbotron bg-warning text-center display-3 text-uppercase font-weight-bold">The Dream Team</div>
+<body class="bg-light">
+    <div class="jumbotron text-center display-1 text-uppercase custom-jumbtron">The Dream Team</div>
     <div class="d-flex flex-wrap justify-content-center">`
 
 // Manager Questions
 const questions = [
     {
         type: 'input', 
-        message: 'Enter Your Name:',
+        message: "Enter Your Team Manager's Name:",
         name: 'name',
         validate: function(name)
         {
@@ -38,7 +42,7 @@ const questions = [
     }, 
     {
         type: 'input', 
-        message: 'Enter your employee ID',
+        message: "Enter Your Team Manager's Employee ID:",
         name: 'id',
         validate: function(id)
         {
@@ -51,7 +55,7 @@ const questions = [
     }, 
     {
         type: 'input', 
-        message: 'Enter Your Email Address',
+        message: "Enter Your Team Manager's Email Address:",
         name: 'email',
         validate: function(email)
         {
@@ -64,7 +68,7 @@ const questions = [
     }, 
     {
         type: 'input', 
-        message: 'Enter Your Office Number',
+        message: "Enter Your Team Manager's Office Number:",
         name: 'officeNum',
         validate: function(officeNum)
         {
@@ -98,7 +102,7 @@ function addToTeam(){
             </div>
         </body>
         </html>`
-            writeHTMLFile('./dist/yourteam.html', starterHTML);
+            writeHTMLFile('./dist/dreamteam.html', starterHTML);
         }
     })
 }
@@ -107,7 +111,7 @@ function newEngineer(){
     inquirer.prompt([
         {
         type: 'input', 
-        message: 'Enter Team Engineer Name:',
+        message: "Enter Team Engineer's Name:",
         name: 'name',
         validate: function(name)
         {
@@ -120,7 +124,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer ID:',
+        message: "Enter Team Engineer's Employee ID:",
         name: 'id',
         validate: function(id)
         {
@@ -133,7 +137,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer Email Address:',
+        message: "Enter Team Engineer's Email Address:",
         name: 'email',
         validate: function(email)
         {
@@ -146,7 +150,7 @@ function newEngineer(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Engineer github username:',
+        message: "Enter Team Engineer's GitHub username:",
         name: 'github',
         validate: function(github)
         {
@@ -166,18 +170,18 @@ function newEngineer(){
         response.github
     )
     let engineerHTML = 
-    `<div class="card bg-light m-4" style="width: 300px">
-    <div class="card-body p-0">
-        <div class="card-title bg-info p-3 text-white">
-            <h5>${newEngineer.name}</h5>
-            <h5>Engineer</h5>
+    `<div class="card bg-light m-4" style="width: 350px">
+        <div class="card-body p-0">
+            <div class="card-title custom-background p-3">
+                <h5 class="text-uppercase font-weight-bold">${newEngineer.name}</h5>
+                <h5 class="text-lowercase font-italic">Engineer</h5>
+            </div>
+            <ul class="list-group list-group-flush border border-grey m-4">
+                <li class="list-group-item"><b>ID: </b>${newEngineer.id}</li>
+                <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newEngineer.email}">${newEngineer.email}</a></li>
+                <li class="list-group-item"><b>GITHUB: </b><a href="https://github.com/${newEngineer.github}" target="_blank">https://github.com/${newEngineer.github}</a></li>
+            </ul>
         </div>
-        <ul class="list-group list-group-flush border border-grey m-4">
-            <li class="list-group-item">ID: ${newEngineer.id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${newEngineer.email}">${newEngineer.email}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${newEngineer.github}">https://github.com/${newEngineer.github}</a></li>
-          </ul>
-    </div>
     </div>`
 
     starterHTML+=engineerHTML;
@@ -202,7 +206,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern ID:',
+        message: "Enter Team Intern's Employee ID:",
         name: 'id',
         validate: function(id)
         {
@@ -215,7 +219,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern Email Address:',
+        message: "Enter Team Intern's Email Address:",
         name: 'email',
         validate: function(email)
         {
@@ -228,7 +232,7 @@ function newIntern(){
     }, 
     {
         type: 'input', 
-        message: 'Enter Team Intern School:',
+        message: "Enter Team Intern's School:",
         name: 'school',
         validate: function(username)
         {
@@ -248,16 +252,16 @@ function newIntern(){
         response.school
     )
     let internHTML = 
-    `<div class="card bg-light m-4" style="width: 300px">
+    `<div class="card bg-light m-4" style="width: 350px">
     <div class="card-body p-0">
-        <div class="card-title bg-info p-3 text-white">
-            <h5>${newIntern.name}</h5>
-            <h5>Intern</h5>
+        <div class="card-title custom-background p-3">
+            <h5 class="text-uppercase font-weight-bold">${newIntern.name}</h5>
+            <h5 class="text-lowercase font-italic">Intern</h5>
         </div>
         <ul class="list-group list-group-flush border border-grey m-4">
-            <li class="list-group-item">ID: ${newIntern.id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${newIntern.email}">${newIntern.email}</a></li>
-            <li class="list-group-item">School: ${newIntern.school}</li>
+            <li class="list-group-item"><b>ID: </b>${newIntern.id}</li>
+            <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newIntern.email}">${newIntern.email}</a></li>
+            <li class="list-group-item"><b>SCHOOL: </b>${newIntern.school}</li>
         </ul>
     </div>
     </div>`
@@ -282,20 +286,19 @@ function init(){
             response.officeNum
         )
         let managerHTML = 
-        `<div class="card bg-light m-4" style="width: 300px">
+        `<div class="card bg-light m-4" style="width: 350px">
         <div class="card-body p-0">
-            <div class="card-title bg-info p-3 text-white">
-                <h5>${newManager.name}</h5>
-                <h5>Manager</h5>
+            <div class="card-title custom-background p-3">
+                <h5 class="text-uppercase font-weight-bold">${newManager.name}</h5>
+                <h5 class="text-lowercase font-italic">Manager</h5>
             </div>
             <ul class="list-group list-group-flush border border-grey m-4">
-                <li class="list-group-item">ID: ${newManager.id}</li>
-                <li class="list-group-item">Email: <a href="mailto:${newManager.email}">${newManager.email}</a></li>
-                <li class="list-group-item">Office: ${newManager.officeNum}</li>
+                <li class="list-group-item"><b>ID: </b>${newManager.id}</li>
+                <li class="list-group-item"><b>EMAIL: </b><a href="mailto:${newManager.email}">${newManager.email}</a></li>
+                <li class="list-group-item"><b>OFFICE: </b>${newManager.officeNum}</li>
             </ul>
         </div>
         </div>`
-
         starterHTML+=managerHTML;
         addToTeam();
     })

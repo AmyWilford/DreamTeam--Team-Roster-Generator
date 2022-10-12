@@ -1,0 +1,12 @@
+.jumbotron {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    background-color:#28334Aff;
+    color: #f9cac0
+}
+.card {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.custom-background {
+    background-color: #28334Aff;
+    color: #f9cac0;
+}
